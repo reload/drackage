@@ -13,7 +13,6 @@ use Drupal\Core\Form\FormInterface;
  * Drackage search form.
  */
 class SearchForm implements FormInterface {
-
   /**
    * {@inheritdoc}
    */

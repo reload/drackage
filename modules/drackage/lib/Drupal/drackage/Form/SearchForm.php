@@ -41,6 +41,7 @@ class SearchForm implements FormInterface {
   /**
    * {@inheritdoc}
    */
+  public function submitForm(array &$form, array &$form_state) {}
 
   /**
    * {@inheritdoc}

@@ -1,0 +1,7 @@
+drackage.search_page:
+  path: '/drackage/search'
+  defaults:
+    _title: 'Search packages'
+    _content: '\Drupal\drackage\Controller\DrackageController::searchPage'
+  requirements:
+    _permission: 'view drush packages'

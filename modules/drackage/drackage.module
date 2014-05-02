@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * @file
+ * Searches packagist.org for Drush packages.
+ */
+
+/**
+ * Implements hook_permission().
+ */
+function drackage_permission() {
+  $perms = array(
+    'view drush packages' => array(
+      'title' => t('Search and view Drush packages'),
+    ),
+  );
+
+  return $perms;
+}

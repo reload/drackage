@@ -1,0 +1,6 @@
+name: Drackage
+type: module
+description: 'Provides a search interface for Drush packages on Pagagist.org.'
+core: 8.x
+package: Drush
+version: 1.0

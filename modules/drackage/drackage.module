@@ -5,6 +5,8 @@
  * Searches packagist.org for Drush packages.
  */
 
+use Drupal\Component\Datetime\DateTimePlus;
+
 /**
  * Implements hook_permission().
  */
@@ -16,4 +18,59 @@ function drackage_permission() {
   );
 
   return $perms;
+}
+
+/**
+ * Implements hook_theme().
+ */
+function drackage_theme() {
+  return array(
+    'drush_package' => array(
+      'variables' => array('package-json' => NULL),
+      'template' => 'drush-package',
+    ),
+    'drush_package_version' => array(
+      'variables' => array('version-json' => NULL),
+      'template' => 'drush-package-version',
+    ),
+  );
+}
+
+/**
+ * Prepares variables for Drush package template.
+ *
+ * Default template: drush-package.html.twig.
+ */
+function template_preprocess_drush_package(&$vars) {
+  $json = $vars['package-json'];
+  $vars['name'] = check_plain($json['name']);
+  $vars['description'] = check_plain($json['description']);
+  $vars['versions'] = array();
+  foreach ($json['versions'] as $version) {
+    $vars['versions'][] = array(
+      '#theme' => 'drush_package_version',
+      '#version-json' => $version,
+    );
+  }
+}
+
+/**
+ * Prepares variables for Drush package version template.
+ *
+ * Default template: drush-package-version.html.twig.
+ */
+function template_preprocess_drush_package_version(&$vars) {
+  $json = $vars['version-json'];
+  $vars['version'] = check_plain($json['version']);
+  $vars['description'] = check_plain($json['description']);
+  $vars['install_command'] = 'cd ~/.drush && composer require ' . check_plain($json['name']) . ':' . check_plain($json['version']);
+  // Using @ to suppress a warning in DateTimePlus for now: Warning:
+  // DateTime::setTimezone(): Can only do this for zones with ID for now in
+  // /var/www/drush-packages/core/lib/Drupal/Component/Datetime/DateTimePlus.php
+  // on line 256
+  $time = @DateTimePlus::createFromFormat('Y-m-d\TH:i:sP', $json['time']);
+  // Converting to timestamp and using format_date in order to use the
+  // configured timezone.
+  $timestamp = $time->format('U');
+  $vars['time'] = format_date($timestamp, 'medium');
 }

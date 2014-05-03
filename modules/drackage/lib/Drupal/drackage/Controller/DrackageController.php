@@ -47,13 +47,14 @@ class DrackageController extends ControllerBase {
   public function packagePage($vendor, $package) {
     $package_info = $this->packagistJson('packages/' . $vendor . '/' . $package . '.json');
 
-    if (empty($package_info)) {
+    if (empty($package_info['package'])) {
       throw new NotFoundHttpException();
     }
+    $package_info = $package_info['package'];
 
     $build['package'] = array(
-      '#type' => 'markup',
-      '#markup' => check_plain(print_r($package_info, true)),
+      '#theme' => 'drush_package',
+      '#package-json' => $package_info,
     );
     return $build;
   }

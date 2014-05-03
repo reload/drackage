@@ -14,6 +14,18 @@ use Drupal\Core\Form\FormInterface;
  */
 class SearchForm implements FormInterface {
   /**
+   * The keys searched for.
+   */
+  protected $keys;
+
+  /**
+   * Constructor.
+   */
+  public function __construct($keys) {
+    $this->keys = $keys;
+  }
+
+  /**
    * {@inheritdoc}
    */
   public function getFormId() {
@@ -24,9 +36,10 @@ class SearchForm implements FormInterface {
    * {@inheritdoc}
    */
   public function buildForm(array $form, array &$form_state) {
-    $form['query'] = array(
+    $form['keys'] = array(
       '#type' => 'textfield',
       '#title' => t('Search for'),
+      '#default_value' => $this->keys,
     );
 
     $form['submit'] = array(
@@ -40,7 +53,13 @@ class SearchForm implements FormInterface {
   /**
    * {@inheritdoc}
    */
-  public function submitForm(array &$form, array &$form_state) {}
+  public function submitForm(array &$form, array &$form_state) {
+    // Mirror cores way of redirecting to a get query.
+    $form_state['redirect_route'] = array(
+      'route_name' => 'drackage.search_page',
+      'options' => array('query' => array('keys' => trim($form_state['values']['keys']))),
+    );
+  }
 
   /**
    * {@inheritdoc}

@@ -12,6 +12,7 @@ use Drupal\drackage\Form\SearchForm;
 use Drupal\Core\Http\Client;
 use GuzzleHttp\Exception\TransferException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Controller routines for drackage routes.
@@ -20,12 +21,40 @@ class DrackageController extends ControllerBase {
   /**
    * Shows the search form.
    */
-  public function searchPage() {
+  public function searchPage(Request $request) {
+    $packages = $this->getPackages();
     $settings = array(
-      'drackage_packages' => $this->packagistJson('search.json?tags[]=drush'),
+      'drackage_packages' => $packages,
     );
     $build['#attached']['js'][] = array('type' => 'setting', 'data' => $settings);
-    $build['form'] = $this->formBuilder()->getForm(new SearchForm());
+
+    $keys = '';
+    if ($request->query->has('keys')) {
+      $keys = trim($request->get('keys'));
+    }
+
+    // Build form first, it might redirect anyway.
+    $build['form'] = $this->formBuilder()->getForm(new SearchForm($keys));
+
+    if (!empty($keys)) {
+      // Search packages.
+      $build['results'] = array();
+      foreach ($packages as $package) {
+        if (strpos($package['name'], $keys) !== FALSE ||
+          strpos($package['description'], $keys) !== FALSE) {
+          $build['results'][] = array(
+            '#theme' => 'drush_package_search_result',
+            '#package' => $package,
+          );
+        }
+      }
+
+      if (empty($build['results'])) {
+        $build['results'] = array(
+          '#markup' => t('No packages found.'),
+        );
+      }
+    }
 
     return $build;
   }
@@ -82,5 +111,26 @@ class DrackageController extends ControllerBase {
       // Quietly swallow all Guzzle exceptions.
     }
     return $json;
+  }
+
+  /**
+   * Fetches Drush packages listing from packagist.
+   */
+  protected function getPackages() {
+    $packages_json = $this->packagistJson('search.json?tags[]=drush');
+    $packages = array();
+    if (!empty($packages_json['results'])) {
+      // Sanitize the listing.
+      foreach ($packages_json['results'] as $package) {
+        $packages[] = array(
+          'name' => check_plain($package['name']),
+          'description' => check_plain($package['description']),
+          'url' => check_plain($package['url']),
+          'downloads' => check_plain($package['downloads']),
+          'favers' => check_plain($package['favers']),
+        );
+      }
+    }
+    return $packages;
   }
 }

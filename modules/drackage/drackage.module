@@ -33,6 +33,10 @@ function drackage_theme() {
       'variables' => array('version-json' => NULL),
       'template' => 'drush-package-version',
     ),
+    'drush_package_search_result' => array(
+      'variables' => array('package' => NULL),
+      'template' => 'drush-package-search-result',
+    ),
   );
 }
 
@@ -73,4 +77,15 @@ function template_preprocess_drush_package_version(&$vars) {
   // configured timezone.
   $timestamp = $time->format('U');
   $vars['time'] = format_date($timestamp, 'medium');
+}
+
+/**
+ * Prepares variables for Drush package search result template.
+ *
+ * Default template: drush-package-search-result.html.twig.
+ */
+function template_preprocess_drush_package_search_result(&$vars) {
+  $vars['name'] = $vars['package']['name'];
+  $vars['description'] = $vars['package']['description'];
+  $vars['downloads'] = $vars['package']['downloads'];
 }

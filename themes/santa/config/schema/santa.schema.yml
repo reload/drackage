@@ -1,0 +1,9 @@
+# Schema for the configuration files of the Santa theme.
+
+santa.settings:
+  type: theme_settings
+  label: 'Santa settings'
+
+santa.breakpoints:
+  type: theme_breakpoints_default
+  label: 'Santa breakpoints'

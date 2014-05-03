@@ -1,0 +1,18 @@
+body { margin: 0; }
+
+.site-header > .inner, .main-navigation > .inner, .info > .inner, .main-content > .inner, .site-footer > .inner { width: 1250px; margin: 0 auto; }
+
+.site-header .site-logo, .site-header .name-and-slogan { display: inline-block; }
+
+.main-navigation ul.links { margin: 0; padding: 0; }
+.main-navigation li { list-style: none none; display: inline-block; margin: 10px; }
+.main-navigation .main-menu { width: 79%; display: inline-block; }
+.main-navigation .user-menu { width: 20%; display: inline-block; }
+
+.site-header { border-bottom: 1px solid #d03535; }
+
+.site-footer { border-top: 1px solid #d03535; }
+
+.site-header > .inner, .main-content > .inner, .site-footer > .inner { padding: 10px 0; }
+
+.info { padding-top: 10px; }

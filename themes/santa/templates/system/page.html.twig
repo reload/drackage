@@ -1,0 +1,110 @@
+{#
+/**
+ * @file
+ * Santa page template.
+ */
+#}
+<div class="page-wrapper">
+
+  <header class="site-header" role="banner">
+    <div class="inner">
+      {% if logo %}
+        <a href="{{ front_page }}" title="{{ 'Home'|t }}" rel="home">
+          <img src="{{ logo }}" alt="{{ 'Home'|t }}"/>
+        </a>
+      {% endif %}
+
+      {% if site_name or site_slogan %}
+        <div class="name-and-slogan">
+
+          {# Use h1 when the content title is empty #}
+          {% if title %}
+            <strong class="site-name">
+              <a href="{{ front_page }}" title="{{ 'Home'|t }}" rel="home">{{ site_name }}</a>
+            </strong>
+          {% else %}
+            <h1 class="site-name">
+              <a href="{{ front_page }}" title="{{ 'Home'|t }}" rel="home">{{ site_name }}</a>
+            </h1>
+          {% endif %}
+
+          {% if site_slogan %}
+            <div class="site-slogan">{{ site_slogan }}</div>
+          {% endif %}
+        </div>{# ./name-and-slogan #}
+      {% endif %}
+
+      {{ page.header }}
+    </div>
+  </header>
+
+  {% if main_menu or secondary_menu %}
+    <nav class="main-navigation" role="navigation">
+      <div class="inner">
+        <div class="main-menu">
+          {{ main_menu }}
+        </div>
+        <div class="user-menu">
+          {{ secondary_menu }}
+        </div>
+      </div>
+    </nav>
+  {% endif %}
+
+  <div class="info" role="dialog">
+    <div class="inner">
+      {{ breadcrumb }}
+
+      {{ messages }}
+
+      {{ page.help }}
+    </div>
+  </div>
+
+  <main class="main-content" role="main">
+    <div class="inner">
+      <a id="main-content"></a>{# link is in html.html.twig #}
+
+      <div class="l-content">
+        {{ page.highlighted }}
+
+        {{ title_prefix }}
+        {% if title %}
+          <h1>{{ title }}</h1>
+        {% endif %}
+        {{ title_suffix }}
+
+        {{ tabs }}
+
+        {% if action_links %}
+          <nav class="action-links">{{ action_links }}</nav>
+        {% endif %}
+
+        {{ page.content }}
+
+        {{ feed_icons }}
+      </div>{# /.l-content #}
+
+      {% if page.sidebar_first %}
+        <aside class="l-sidebar-first" role="complementary">
+          {{ page.sidebar_first }}
+        </aside>
+      {% endif %}
+
+      {% if page.sidebar_second %}
+        <aside class="l-sidebar-second" role="complementary">
+          {{ page.sidebar_second }}
+        </aside>
+      {% endif %}
+    </div>
+  </main>
+
+  {% if page.footer %}
+    <footer class="site-footer" role="contentinfo">
+      <div class="inner">
+        {{ page.footer }}
+      </div>
+    </footer>
+  {% endif %}
+
+</div>{# /.l-container #}

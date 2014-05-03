@@ -1,0 +1,35 @@
+@import 'vars';
+
+html {
+  height: 100%;
+}
+
+body {
+  background-color: $lightGrey;
+  color: $black;
+}
+
+.main-content {
+  background-color: $white;
+}
+
+.info {
+  background-color: $white;
+}
+
+.main-navigation {
+  background-color: $black;
+  border-bottom: 1px solid $red;
+}
+
+// Menu.
+.main-navigation {
+  li {
+    a {
+      color: $lightGrey;
+      &.active {
+        color: $white;
+      }
+    }
+  }
+}

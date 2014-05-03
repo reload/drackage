@@ -1,0 +1,12 @@
+html { height: 100%; }
+
+body { background-color: whitesmoke; color: #404040; }
+
+.main-content { background-color: white; }
+
+.info { background-color: white; }
+
+.main-navigation { background-color: #404040; border-bottom: 1px solid #d03535; }
+
+.main-navigation li a { color: whitesmoke; }
+.main-navigation li a.active { color: white; }

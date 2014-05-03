@@ -1,0 +1,66 @@
+@import "vars";
+
+body {
+  margin: 0;
+}
+
+.site-header,
+.main-navigation,
+.info,
+.main-content,
+.site-footer, {
+  & > .inner {
+    width: 1250px;
+    margin: 0 auto;
+  }
+}
+
+.site-header {
+  .site-logo,
+  .name-and-slogan {
+    display: inline-block;
+  }
+}
+
+.main-navigation {
+  ul.links {
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    list-style: none none;
+    display: inline-block;
+    margin: 10px;
+  }
+
+  .main-menu {
+    width: 79%;
+    display: inline-block;
+  }
+
+  .user-menu {
+    width: 20%;
+    display: inline-block;
+  }
+}
+
+.site-header {
+  border-bottom: 1px solid $red;
+}
+
+.site-footer {
+  border-top: 1px solid $red;
+}
+
+.site-header,
+.main-content,
+.site-footer {
+  & > .inner {
+    padding: 10px 0;
+  }
+}
+
+.info {
+  padding-top: 10px;
+}

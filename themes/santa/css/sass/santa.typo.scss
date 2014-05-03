@@ -1,0 +1,32 @@
+@import "_vars";
+
+// Typo.
+@mixin heading($font-size: 1em) {
+  font-size: $font-size;
+  font-family: helvetica, arial, sans-serif;
+  line-height: 1;
+  margin-bottom: 10px;
+  font-weight: normal;
+  text-shadow: 1px 1px 1px rgba($black, 0.5);
+}
+
+h1 {
+  @include heading(2.4rem);
+}
+
+h2 {
+  @include heading(2rem);
+}
+
+h3 {
+  @include heading(1.6rem);
+}
+
+a {
+  text-decoration: none;
+  color: $red;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

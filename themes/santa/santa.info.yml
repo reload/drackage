@@ -9,6 +9,7 @@ stylesheets:
     - css/santa.reset.css
     - css/santa.layout.css
     - css/santa.typo.css
+    - css/santa.forms.css
     - css/santa.misc.css
 stylesheets-remove:
   - normalize.css

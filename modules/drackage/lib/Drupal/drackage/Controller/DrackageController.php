@@ -43,7 +43,7 @@ class DrackageController extends ControllerBase {
         if (strpos($package['name'], $keys) !== FALSE ||
           strpos($package['description'], $keys) !== FALSE) {
           $build['results'][] = array(
-            '#theme' => 'drush_package_search_result',
+            '#theme' => 'drush_package_teaser',
             '#package' => $package,
           );
         }

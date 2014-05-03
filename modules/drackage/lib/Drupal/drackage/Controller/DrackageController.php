@@ -60,6 +60,22 @@ class DrackageController extends ControllerBase {
   }
 
   /**
+   * Browse packages page.
+   */
+  public function browsePage() {
+    $packages = $this->getPackages();
+    usort($packages, function ($a, $b) {return strcmp($a['name'], $b['name']);});
+    foreach ($packages as $package) {
+      $build[] = array(
+        '#theme' => 'drush_package_teaser',
+        '#package' => $package,
+      );
+    }
+
+    return $build;
+  }
+
+  /**
    * The _title_callback for the drackage.package_page route.
    */
   public function packagePageTitle($vendor, $package) {

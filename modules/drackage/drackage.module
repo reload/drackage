@@ -64,7 +64,9 @@ function template_preprocess_drush_package(&$vars) {
  * Default template: drush-package-teaser.html.twig.
  */
 function template_preprocess_drush_package_teaser(&$vars) {
-  $vars['name'] = $vars['package']['name'];
+  list($vendor, $package) = explode('/', $vars['package']['name'], 2);
+  $route_parameters = array('vendor' => $vendor, 'package' => $package);
+  $vars['name'] = Drupal::l($vars['package']['name'], 'drackage.package_page', $route_parameters);
   $vars['description'] = $vars['package']['description'];
   $vars['downloads'] = $vars['package']['downloads'];
 }

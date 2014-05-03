@@ -5,3 +5,10 @@ drackage.search_page:
     _content: '\Drupal\drackage\Controller\DrackageController::searchPage'
   requirements:
     _permission: 'view drush packages'
+drackage.package_page:
+  path: '/drackage/{vendor}/{package}'
+  defaults:
+    _content: '\Drupal\drackage\Controller\DrackageController::packagePage'
+    _title_callback: '\Drupal\drackage\Controller\DrackageController::packagePageTitle'
+  requirements:
+    _permission: 'view drush packages'

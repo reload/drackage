@@ -1,5 +1,5 @@
 drackage.search_page:
-  path: '/drackage/search'
+  path: '/drackage'
   defaults:
     _title: 'Search packages'
     _content: '\Drupal\drackage\Controller\DrackageController::searchPage'

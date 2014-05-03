@@ -1,0 +1,8 @@
+drackage.search_page:
+  route_name: drackage.search_page
+  base_route: drackage.search_page
+  title: 'Search packages'
+drackage.browse_page:
+  route_name: drackage.browse_page
+  base_route: drackage.search_page
+  title: 'Browse packages'

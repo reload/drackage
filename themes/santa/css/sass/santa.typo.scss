@@ -10,8 +10,17 @@
   text-shadow: 1px 1px 1px rgba($black, 0.5);
 }
 
+.site-name {
+  @include heading(3rem);
+  margin: 0 0 0 40px;
+  display: inline-block;
+}
+
 h1 {
   @include heading(2.4rem);
+  border-bottom: 1px solid $lightGrey;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
 }
 
 h2 {

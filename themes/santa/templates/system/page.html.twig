@@ -9,9 +9,11 @@
   <header class="site-header" role="banner">
     <div class="inner">
       {% if logo %}
-        <a href="{{ front_page }}" title="{{ 'Home'|t }}" rel="home">
-          <img src="{{ logo }}" alt="{{ 'Home'|t }}"/>
-        </a>
+        <figure class="site-logo">
+          <a href="{{ front_page }}" title="{{ 'Home'|t }}" rel="home">
+            <img src="{{ logo }}" alt="{{ 'Home'|t }}"/>
+          </a>
+        </figure>
       {% endif %}
 
       {% if site_name or site_slogan %}

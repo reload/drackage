@@ -1,6 +1,6 @@
 body { margin: 0; }
 
-.site-header > .inner, .main-navigation > .inner, .info > .inner, .main-content > .inner, .site-footer > .inner { width: 1250px; margin: 0 auto; }
+.site-header > .inner, .main-navigation > .inner, .info > .inner, .main-content > .inner, .site-footer > .inner { max-width: 1250px; margin: 0 auto; }
 
 .site-header .site-logo, .site-header .name-and-slogan { display: inline-block; }
 

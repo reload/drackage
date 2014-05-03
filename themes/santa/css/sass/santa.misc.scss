@@ -33,3 +33,17 @@ body {
     }
   }
 }
+
+// Package listing.
+.drush-package-version {
+  border: 1px solid $lightGrey;
+  padding: 10px;
+  margin: 20px 0;
+
+  pre {
+    background-color: $lightGrey;
+    font-family: "courier new", courier, monospace;
+    padding: 5px;
+    margin: 10px 0;
+  }
+}

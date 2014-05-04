@@ -40,6 +40,7 @@ class SearchForm implements FormInterface {
       '#type' => 'textfield',
       '#title' => t('Search for'),
       '#default_value' => $this->keys,
+      '#autocomplete_route_name' => 'drackage.autocomplete',
     );
 
     $form['submit'] = array(

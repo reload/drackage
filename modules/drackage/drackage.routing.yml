@@ -19,3 +19,9 @@ drackage.package_page:
     _title_callback: '\Drupal\drackage\Controller\DrackageController::packagePageTitle'
   requirements:
     _permission: 'view drush packages'
+drackage.autocomplete:
+  path: '/drackage/autocomplete'
+  defaults:
+    _controller: '\Drupal\drackage\Controller\DrackageController::autocompletePackage'
+  requirements:
+    _permission: 'view drush packages'

@@ -13,6 +13,7 @@ use Drupal\Core\Http\Client;
 use GuzzleHttp\Exception\TransferException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 /**
  * Controller routines for drackage routes.
@@ -102,6 +103,33 @@ class DrackageController extends ControllerBase {
       '#package-json' => $package_info,
     );
     return $build;
+  }
+
+  /**
+   * Returns response for the package autocompletion.
+   */
+  public function autocompletePackage(Request $request) {
+    $keys = $request->query->get('q');
+
+    // @todo merge filtering code with that of search.
+    $matches = array();
+    if (!empty($keys)) {
+      foreach ($this->getPackages() as $package) {
+        if (strpos($package['name'], $keys) !== FALSE ||
+          strpos($package['description'], $keys) !== FALSE) {
+          $label = array(
+            '#theme' => 'drush_package_teaser',
+            '#package' => $package,
+          );
+          $matches[] = array(
+            'value' => $package['name'],
+            'label' => drupal_render($label),
+          );
+        }
+      }
+    }
+
+    return new JsonResponse($matches);
   }
 
   /**

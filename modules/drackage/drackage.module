@@ -52,8 +52,37 @@ function template_preprocess_drush_package(&$vars) {
   $vars['versions'] = array();
   foreach ($json['versions'] as $version) {
     $vars['versions'][] = array(
-      '#theme' => 'drush_package_version',
-      '#version-json' => $version,
+      '#type' => 'details',
+      '#title' => $version['version'],
+      '#open' => TRUE,
+      '#attributes' => array(
+        'class' => array(
+          'drush-package-version',
+        ),
+      ),
+      array(
+        '#theme' => 'drush_package_version',
+        '#version-json' => $version,
+      ),
+    );
+  }
+
+  $current_version = array_keys($json['versions']);
+  $current_version = $current_version[0];
+  $current = $json['versions'][$current_version];
+  $links = array();
+  if (!empty($current['homepage'])) {
+    $links[] = l(t('Homepage'), $current['homepage']);
+  }
+  // If the source matches GitHub, add it as an extra link.
+  if (!empty($current['source']['url']) && preg_match('{https://github\\.com/}', $current['source']['url'])) {
+    $links[] = l(t('GitHub'), $current['source']['url']);
+  }
+
+  if (!empty($links)) {
+    $vars['links'] = array(
+      '#theme' => 'item_list',
+      '#items' => $links,
     );
   }
 }

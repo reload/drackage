@@ -50,11 +50,13 @@ function template_preprocess_drush_package(&$vars) {
   $vars['name'] = check_plain($json['name']);
   $vars['description'] = check_plain($json['description']);
   $vars['versions'] = array();
+  $current = NULL;
   foreach ($json['versions'] as $version) {
     $vars['versions'][] = array(
       '#type' => 'details',
       '#title' => $version['version'],
-      '#open' => TRUE,
+      // Let first one be open.
+      '#open' => !$current,
       '#attributes' => array(
         'class' => array(
           'drush-package-version',
@@ -65,11 +67,14 @@ function template_preprocess_drush_package(&$vars) {
         '#version-json' => $version,
       ),
     );
+    if (!$current) {
+      $current = $version;
+    }
   }
 
-  $current_version = array_keys($json['versions']);
-  $current_version = $current_version[0];
-  $current = $json['versions'][$current_version];
+  // $current_version = array_keys($json['versions']);
+  // $current_version = $current_version[0];
+  // $current = $json['versions'][$current_version];
   $links = array();
   if (!empty($current['homepage'])) {
     $links[] = l(t('Homepage'), $current['homepage']);

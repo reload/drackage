@@ -35,6 +35,11 @@ body {
 
   summary {
     @include heading(1.6rem);
+
+    &:focus {
+      outline: none;
+      color: $red;
+    }
   }
 
   pre {

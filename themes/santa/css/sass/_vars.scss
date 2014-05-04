@@ -2,4 +2,14 @@
 $red: hsl(0, 62%, 51%); // rgb(208, 53, 53)
 $white: hsl(0, 0%, 100%); // rgb(255, 255, 255)
 $black: hsl(0, 0%, 25%);
-$lightGrey: hsl(0, 0%, 95%);
+$lightGrey: hsl(0, 0%, 90%);
+
+// Typo.
+@mixin heading($font-size: 1em) {
+  font-size: $font-size;
+  font-family: helvetica, arial, sans-serif;
+  line-height: 1;
+  margin-bottom: 10px;
+  font-weight: normal;
+  text-shadow: 1px 1px 1px rgba($black, 0.5);
+}

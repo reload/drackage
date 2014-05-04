@@ -4,8 +4,9 @@ body { background-color: white; color: #404040; }
 
 .main-navigation { background-color: #404040; border-bottom: 1px solid #d03535; }
 
-.main-navigation li a { color: #f2f2f2; }
+.main-navigation li a { color: #e6e6e6; }
 .main-navigation li a.active { color: white; }
 
-.drush-package-version, .drush-package-search-result { border: 1px solid #f2f2f2; padding: 10px; margin: 20px 0; }
-.drush-package-version pre, .drush-package-search-result pre { background-color: #f2f2f2; font-family: "courier new", courier, monospace; padding: 5px; margin: 10px 0; }
+.drush-package-version, .drush-package-search-result { border: 1px solid #e6e6e6; padding: 10px; margin: 20px 0; }
+.drush-package-version summary, .drush-package-search-result summary { font-size: 1.6rem; font-family: helvetica, arial, sans-serif; line-height: 1; margin-bottom: 10px; font-weight: normal; text-shadow: 1px 1px 1px rgba(64, 64, 64, 0.5); }
+.drush-package-version pre, .drush-package-search-result pre { background-color: #e6e6e6; font-family: "courier new", courier, monospace; padding: 5px; margin: 10px 0; }

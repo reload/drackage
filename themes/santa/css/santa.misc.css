@@ -20,7 +20,7 @@ ul.tabs li.active a { background-color: #d03535; color: white; text-decoration: 
 
 ul.ui-menu { border: 0; border-radius: 0; padding: 0; display: block !important; }
 ul.ui-menu li.ui-item, ul.ui-menu li.ui-item:hover, ul.ui-menu li { border: 0; background-color: inherit; }
-ul.ui-menu li.ui-item a, ul.ui-menu li.ui-item a.ui-state-focus, ul.ui-menu li.ui-item:hover a, ul.ui-menu li.ui-item:hover a.ui-state-focus, ul.ui-menu li a, ul.ui-menu li a.ui-state-focus { border-color: transparent; border: none; background: white !important; }
+ul.ui-menu li.ui-item a, ul.ui-menu li.ui-item a.ui-state-focus, ul.ui-menu li.ui-item:hover a, ul.ui-menu li.ui-item:hover a.ui-state-focus, ul.ui-menu li a, ul.ui-menu li a.ui-state-focus { border-color: transparent; border: none; background: white !important; margin: 0 !important; }
 ul.ui-menu li.ui-item a div, ul.ui-menu li.ui-item a.ui-state-focus div, ul.ui-menu li.ui-item:hover a div, ul.ui-menu li.ui-item:hover a.ui-state-focus div, ul.ui-menu li a div, ul.ui-menu li a.ui-state-focus div { color: black; background: white; }
 ul.ui-menu li.ui-item a.ui-state-focus .drush-package-search-result, ul.ui-menu li.ui-item:hover a.ui-state-focus .drush-package-search-result, ul.ui-menu li a.ui-state-focus .drush-package-search-result { border-color: #d03535; }
 ul.ui-menu li.ui-item a a, ul.ui-menu li.ui-item a:hover a, ul.ui-menu li.ui-item a.ui-state-focus a, ul.ui-menu li.ui-item:hover a a, ul.ui-menu li.ui-item:hover a:hover a, ul.ui-menu li.ui-item:hover a.ui-state-focus a, ul.ui-menu li a a, ul.ui-menu li a:hover a, ul.ui-menu li a.ui-state-focus a { color: #d03535; text-decoration: underline; }

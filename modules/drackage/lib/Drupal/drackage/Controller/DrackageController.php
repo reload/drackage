@@ -43,6 +43,8 @@ class DrackageController extends ControllerBase {
       foreach ($packages as $package) {
         if (strpos($package['name'], $keys) !== FALSE ||
           strpos($package['description'], $keys) !== FALSE) {
+          // Remember last found package. Used later if there's only one found.
+          $last_found_package = $package;
           $build['results'][] = array(
             '#theme' => 'drush_package_teaser',
             '#package' => $package,
@@ -54,6 +56,10 @@ class DrackageController extends ControllerBase {
         $build['results'] = array(
           '#markup' => t('No packages found.'),
         );
+      }
+      elseif (count($build['results']) == 1) {
+        list($vendor, $name) = explode('/', $last_found_package['name'], 2);
+        return $this->redirect('drackage.package_page', array('vendor' => $vendor, 'package' => $name));
       }
     }
 

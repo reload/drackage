@@ -97,7 +97,18 @@ ul.ui-menu {
     a,
     a.ui-state-focus {
       border-color: transparent;
-      background: $white;
+      border: none;
+      background: $white !important;
+      div {
+        color: black;
+        background: $white;
+      }
+    }
+
+    a.ui-state-focus {
+      .drush-package-search-result {
+        border-color: $red;
+      }
     }
 
     a a,

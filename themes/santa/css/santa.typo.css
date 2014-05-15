@@ -8,3 +8,5 @@ h3 { font-size: 1.6rem; font-family: helvetica, arial, sans-serif; line-height: 
 
 a { text-decoration: none; color: #d03535; }
 a:hover { text-decoration: underline; }
+
+p { margin-bottom: 10px; }

@@ -49,3 +49,61 @@ body {
     margin: 10px 0;
   }
 }
+
+// Tabs.
+ul.tabs {
+  border-bottom: 1px solid $red;
+  li {
+    display: inline-block;
+    margin: 5px 5px 0;
+
+    a {
+      display: inline-block;
+      border: 1px solid $red;
+      border-bottom: none;
+      padding: 5px 10px;
+      border-radius: 0 10px 0 0;
+
+      &:hover,
+      &:focus {
+        background-color: $red;
+        color: $white;
+        text-decoration: none;
+      }
+    }
+
+    &.active a {
+      background-color: $red;
+      color: $white;
+      text-decoration: none;
+    }
+  }
+}
+
+// Autocomplete
+ul.ui-menu {
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  display: block !important;
+
+  li.ui-item,
+  li.ui-item:hover,
+  li {
+    border: 0;
+    background-color: inherit;
+
+    a,
+    a.ui-state-focus {
+      border-color: transparent;
+      background: $white;
+    }
+
+    a a,
+    a:hover a,
+    a.ui-state-focus a {
+      color: $red;
+      text-decoration: underline;
+    }
+  }
+}

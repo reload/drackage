@@ -11,6 +11,6 @@ body { margin: 0; }
 
 .site-header { border-bottom: 1px solid #d03535; }
 
-.site-header > .inner, .main-content > .inner, .site-footer > .inner { padding: 10px 0; }
+.site-header > .inner, .main-content > .inner, .site-footer > .inner { padding: 10px; }
 
 .info { padding-top: 10px; }

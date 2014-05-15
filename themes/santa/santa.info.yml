@@ -13,3 +13,4 @@ stylesheets:
     - css/santa.misc.css
 stylesheets-remove:
   - normalize.css
+  - system.theme.css

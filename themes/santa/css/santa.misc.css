@@ -11,3 +11,14 @@ body { background-color: white; color: #404040; }
 .drush-package-version summary, .drush-package-search-result summary { font-size: 1.6rem; font-family: helvetica, arial, sans-serif; line-height: 1; margin-bottom: 10px; font-weight: normal; text-shadow: 1px 1px 1px rgba(64, 64, 64, 0.5); }
 .drush-package-version summary:focus, .drush-package-search-result summary:focus { outline: none; color: #d03535; }
 .drush-package-version pre, .drush-package-search-result pre { background-color: #e6e6e6; font-family: "courier new", courier, monospace; padding: 5px; margin: 10px 0; }
+
+ul.tabs { border-bottom: 1px solid #d03535; }
+ul.tabs li { display: inline-block; margin: 5px 5px 0; }
+ul.tabs li a { display: inline-block; border: 1px solid #d03535; border-bottom: none; padding: 5px 10px; border-radius: 0 10px 0 0; }
+ul.tabs li a:hover, ul.tabs li a:focus { background-color: #d03535; color: white; text-decoration: none; }
+ul.tabs li.active a { background-color: #d03535; color: white; text-decoration: none; }
+
+ul.ui-menu { border: 0; border-radius: 0; padding: 0; display: block !important; }
+ul.ui-menu li.ui-item, ul.ui-menu li.ui-item:hover, ul.ui-menu li { border: 0; background-color: inherit; }
+ul.ui-menu li.ui-item a, ul.ui-menu li.ui-item a.ui-state-focus, ul.ui-menu li.ui-item:hover a, ul.ui-menu li.ui-item:hover a.ui-state-focus, ul.ui-menu li a, ul.ui-menu li a.ui-state-focus { border-color: transparent; background: white; }
+ul.ui-menu li.ui-item a a, ul.ui-menu li.ui-item a:hover a, ul.ui-menu li.ui-item a.ui-state-focus a, ul.ui-menu li.ui-item:hover a a, ul.ui-menu li.ui-item:hover a:hover a, ul.ui-menu li.ui-item:hover a.ui-state-focus a, ul.ui-menu li a a, ul.ui-menu li a:hover a, ul.ui-menu li a.ui-state-focus a { color: #d03535; text-decoration: underline; }

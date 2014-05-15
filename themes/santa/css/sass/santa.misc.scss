@@ -35,6 +35,7 @@ body {
 
   summary {
     @include heading(1.6rem);
+    margin: 0;
 
     &:focus {
       outline: none;

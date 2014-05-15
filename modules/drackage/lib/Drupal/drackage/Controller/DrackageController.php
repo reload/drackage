@@ -71,7 +71,7 @@ class DrackageController extends ControllerBase {
    */
   public function browsePage() {
     $packages = $this->getPackages();
-    usort($packages, function ($a, $b) {return strcmp($a['name'], $b['name']);});
+    // usort($packages, function ($a, $b) {return strcmp($a['name'], $b['name']);});
     foreach ($packages as $package) {
       $build[] = array(
         '#theme' => 'drush_package_teaser',
